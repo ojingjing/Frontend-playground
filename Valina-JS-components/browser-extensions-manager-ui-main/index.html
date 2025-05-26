@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="module" src="./components/main.js" defer></script>
+
+    <title>Browser extensions manager UI</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img class="logoImg" src="./assets/images/logo.svg" alt="" />
+
+        <button class="darkmodeBtn">
+          <img class="dark_icon" src="./assets/images/icon-sun.svg" alt="" />
+        </button>
+      </header>
+      <section>
+        <h2>Extensions List</h2>
+        <div class="section_button_group">
+          <button class="filter-btn clicked" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="inactive">Inactive</button>
+        </div>
+      </section>
+      <main class="main_grid"></main>
+      <!-- If you plan to use the JSON file to populate the data dynamically, you can delete the content below -->
+    </div>
+  </body>
+</html>
