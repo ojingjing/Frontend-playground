@@ -9,6 +9,59 @@
 ![screencapture-127-0-0-1-5500-index-html-2025-05-26-10_29_39](https://github.com/user-attachments/assets/57992f78-d0f5-489f-998d-815764cd45b7)
 ![screencapture-127-0-0-1-5500-index-html-2025-05-26-10_29_07](https://github.com/user-attachments/assets/6b24ec0c-caaa-4839-ba5c-03af56754858)
 
+다른 페이지>? 로 넘어가면 checkout이 동작을 안하는 이슈
+필터링 된 데이터를 filtered의 Index를 그대로 사용 => 그래서 원본 data가 변경되지 않음
+잘못된 idx를 사용하고 있었음
+active/inactive 모드에선 index가 filtered 기준이라
+
+원본 data의 check 상태가 엉뚱한 아이템에 반영됨
+
+all로 돌아갔을 때, 사용자가 체크한 내용이 안 보임
+→ 체크 반영이 안 된 것처럼 오작동
+✨ 제목
+체크박스 상태 변경 후 필터 변경 시 상태 반영이 안 되는 이슈
+
+🧩 문제 현상
+카드 리스트를 filter 기준으로 렌더링했을 때, 체크박스 상태를 변경하고 다른 필터로 전환하면 상태 반영이 안 됨
+
+다시 all 필터로 돌아와도 변경사항이 적용되지 않음
+
+🧠 원인 분석
+렌더링 시 filtered.forEach()에서 filtered 배열 기준 index를 data-index로 사용함
+
+이후 해당 index를 기준으로 원본 data를 수정 (data[idx].check = ...)
+
+하지만 filtered의 index는 원본과 불일치할 수 있기 때문에, 엉뚱한 항목을 수정하는 오류 발생
+
+🔧 해결 방안
+filtered = data.map((item, index) => ({ ...item, _index: index })) 형태로 _index를 저장
+
+filtered는 뷰 전용 상태로 사용하고, 체크 변경은 filtered[idx].check만 수정
+
+필터 전환 시 syncToData() 함수로 filtered의 _index 기준으로 data를 업데이트하여 상태 반영 보장
+
+✅ 결과
+체크 변경 사항이 필터 전환 후에도 정확히 유지됨
+
+상태 꼬임 없이 렌더링 / 데이터 동기화 동작 정상화
+
+📌 한줄 요약
+뷰 상태(filtered)와 원본 데이터(data)를 분리하고, 명시적 동기화(sync) 타이밍을 관리함으로써 상태 꼬임 문제를 해결했다.
+
+
+
+다크모드
+
+filtered는 뷰에만 집중, data는 저장에만 집중
+SPA 구조처럼 동작하게 만들기 위한 구조임
+
+상태 꼬임 방지 (index mismatch 문제 해결)
+
+뷰를 따로 다루니까 나중에 "변경사항 저장" 버튼 추가도 쉬움
+
+무조건 원본 data는 syncToData() 호출 전까진 안 바뀜
+
+
 Thanks for checking out this front-end coding challenge.
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
