@@ -3,6 +3,11 @@
 ![Design preview for the Browser extensions manager UI coding challenge](./preview.jpg)
 
 ## Welcome! 👋
+![screencapture-127-0-0-1-5501-Valina-JS-components-browser-extensions-manager-ui-main-index-html-2025-05-26-10_32_29](https://github.com/user-attachments/assets/5883f438-b2d9-4a39-8651-1cdeb684e16c)
+![screencapture-127-0-0-1-5501-Valina-JS-components-browser-extensions-manager-ui-main-index-html-2025-05-26-10_32_05](https://github.com/user-attachments/assets/e0630f96-116b-4dfb-bc9b-1bbf495001a4)
+![screencapture-127-0-0-1-5501-Valina-JS-components-browser-extensions-manager-ui-main-index-html-2025-05-26-10_31_57](https://github.com/user-attachments/assets/dae53062-2f6f-4966-b6f8-1cdbb980ddd1)
+![screencapture-127-0-0-1-5500-index-html-2025-05-26-10_29_39](https://github.com/user-attachments/assets/57992f78-d0f5-489f-998d-815764cd45b7)
+![screencapture-127-0-0-1-5500-index-html-2025-05-26-10_29_07](https://github.com/user-attachments/assets/6b24ec0c-caaa-4839-ba5c-03af56754858)
 
 Thanks for checking out this front-end coding challenge.
 
