@@ -33,8 +33,11 @@ npm-debug.log*
 *.swp
 *.swo
 
-# Misc
+# Misc 
 *.log
 *.pem
 .DS_Store
 Thumbs.db
+
+
+## 수정수정
