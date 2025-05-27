@@ -3,12 +3,14 @@ import { data } from "./data.js";
 const container = document.querySelector(".main_grid");
 
 const renderCards = (filter = "all") => {
+  console.log(filter);
   container.innerHTML = "";
   const filtered = data.filter((item) => {
     if (filter === "active") return item.check === true;
     if (filter === "inactive") return item.check === false;
     return true;
   });
+  console.log(filtered);
   filtered.forEach((item, index) => {
     container.innerHTML += `
           <div class="card">
@@ -55,8 +57,11 @@ filterButtons.forEach((btn) => {
 const checked_input = document.querySelectorAll(".checked_input");
 checked_input.forEach((checkbox) => {
   checkbox.addEventListener("change", (e) => {
-    const idx = e.target.dataset.index;
-    data[idx].check = e.target.checked;
+    const idx = Number(e.target.dataset.index);
+    const checked = e.target.checked;
+
+    data[idx].check = checked;
+
     console.log(data[idx].check, idx);
   });
 });
