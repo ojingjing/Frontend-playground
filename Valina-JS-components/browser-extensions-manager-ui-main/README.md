@@ -1,5 +1,5 @@
 # Frontend Mentor - Browser extensions manager UI
-
+https://snazzy-froyo-29152e.netlify.app/
 ![Design preview for the Browser extensions manager UI coding challenge](./preview.jpg)
 
 ## Welcome! 👋
